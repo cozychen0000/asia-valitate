@@ -1,0 +1,23 @@
+@import-normalize;
+
+:root {
+  --color-primary-500: #f77f2f;
+  --color-primary-300: #fdab74;
+  --color-primary-200: #ffd7c5;
+  --color-secondary-500: #12d1bb;
+  --color-gray-700: #414141;
+  --color-gray-500: #858585;
+
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--color-gray-700);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen";
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}

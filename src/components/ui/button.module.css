@@ -1,0 +1,31 @@
+.button {
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  border: 0;
+  outline: 0;
+  background: white;
+  padding: 0.5rem 1rem;
+  color: black;
+  cursor: pointer;
+}
+
+.validation {
+  background: var(--color-primary-500);
+  color: white;
+}
+
+.remove {
+  color: var(--color-primary-500);
+  font-weight: bold;
+}
+
+.add {
+  color: var(--color-secondary-500);
+  padding: 1rem 0;
+}
+
+.disabled {
+  color: var(--color-gray-500);
+  cursor: not-allowed;
+}

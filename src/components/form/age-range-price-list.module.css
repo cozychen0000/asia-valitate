@@ -1,0 +1,23 @@
+.age-range-price-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.age-range-price-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-gray-500);
+}
+
+.age-range-price-list:last-child {
+  margin-bottom: 0rem;
+  padding-bottom: 0rem;
+  border-bottom: 0;
+}
