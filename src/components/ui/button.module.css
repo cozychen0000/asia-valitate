@@ -28,4 +28,5 @@
 .disabled {
   color: var(--color-gray-500);
   cursor: not-allowed;
+  padding: 1rem 0;
 }
