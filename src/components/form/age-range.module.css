@@ -1,6 +1,19 @@
 .age_range {
   width: 50%;
 }
+.error {
+  border: 2px solid var(--color-primary-500);
+}
+
+.error:first-child {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.error:last-child {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
 
 .tilde {
   border-left: 1px solid var(--color-gray-500);

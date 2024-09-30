@@ -9,7 +9,6 @@
 .age-range-price-list {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
