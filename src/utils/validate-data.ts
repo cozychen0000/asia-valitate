@@ -13,6 +13,7 @@ export function validateData(data: AgeRangePriceType[]) {
   indexedData.sort((a, b) => a.ageRange[0] - b.ageRange[0]);
 
   let preEndAge = 0;
+  let preOriginalIndex = 0;
 
   for (let index = 0; index < indexedData.length; index++) {
     const { ageRange, price, originalIndex } = indexedData[index];
@@ -23,7 +24,12 @@ export function validateData(data: AgeRangePriceType[]) {
       if (!errors[originalIndex]) {
         errors[originalIndex] = { ageError: null, priceError: null };
       }
+      if (!errors[preOriginalIndex]) {
+        errors[preOriginalIndex] = { ageError: null, priceError: null };
+      }
       errors[originalIndex]["ageError"] = "年齡區間不可重疊";
+      errors[preOriginalIndex]["ageError"] = "年齡區間不可重疊";
+
     }
 
     if (!price && price !== "") {
@@ -34,6 +40,8 @@ export function validateData(data: AgeRangePriceType[]) {
     }
 
     preEndAge = endAge;
+    preOriginalIndex = originalIndex;
+
   }
   const isValid = Object.keys(errors).length === 0;
   return { errors, isValid };
