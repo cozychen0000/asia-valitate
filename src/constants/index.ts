@@ -6,5 +6,5 @@ export const AGES = [...Array(MAX_AGE - MIN_AGE + 1)].map((_, i) => i);
 
 export const DEFAULT_ITEM: AgeRangePriceType = {
   ageRange: [MIN_AGE, MAX_AGE],
-  price: 0,
+  price: '0',
 };
