@@ -12,7 +12,7 @@ export function validateData(data: AgeRangePriceType[]) {
   }));
   indexedData.sort((a, b) => a.ageRange[0] - b.ageRange[0]);
 
-  let preEndAge = 0;
+  let preEndAge = -1; // 檢查 0 
   let preOriginalIndex = 0;
 
   for (let index = 0; index < indexedData.length; index++) {
@@ -20,7 +20,7 @@ export function validateData(data: AgeRangePriceType[]) {
     const [strAge, endAge] = ageRange;
 
     // 檢查是否有重疊
-    if (strAge < preEndAge) {
+    if (strAge <= preEndAge) {
       if (!errors[originalIndex]) {
         errors[originalIndex] = { ageError: null, priceError: null };
       }
