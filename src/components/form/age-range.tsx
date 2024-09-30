@@ -8,7 +8,10 @@ import { FormItems, FormLabel, FormMessage, FormControl } from "../ui/form";
 
 interface AgeRangeProps {
   ageRange: AgeRangePriceType["ageRange"];
-  onChange: (type: keyof AgeRangePriceType, value:  AgeRangePriceType["ageRange"]) => void;
+  onChange: (
+    type: keyof AgeRangePriceType,
+    value: AgeRangePriceType["ageRange"]
+  ) => void;
   errorMsg?: string | null;
 }
 
@@ -22,7 +25,7 @@ function AgeRange({ ageRange, onChange, errorMsg }: AgeRangeProps) {
     updatedRange[position] = value;
     onChange("ageRange", updatedRange);
   }
-  
+
   function optionIsValidate(position: 0 | 1, value: number) {
     if (position === 0 && value <= secondValue) return false;
     if (position === 1 && value > firstValue) return false;

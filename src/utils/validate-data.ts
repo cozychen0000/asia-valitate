@@ -4,28 +4,33 @@ export function validateData(data: AgeRangePriceType[]) {
   const errors = {} as {
     [key: string]: { ageError: null | string; priceError: null | string };
   };
-  const cloneData = [...data];
-  cloneData.sort((a, b) => a.ageRange[0] - b.ageRange[0]);
+
+  // 創建一個包含原始索引的新數組
+  const indexedData = data.map((item, index) => ({
+    ...item,
+    originalIndex: index,
+  }));
+  indexedData.sort((a, b) => a.ageRange[0] - b.ageRange[0]);
 
   let preEndAge = 0;
 
-  for (let index = 0; index < cloneData.length; index++) {
-    const [strAge, endAge] = cloneData[index].ageRange;
-    console.log(strAge > preEndAge, strAge, preEndAge);
+  for (let index = 0; index < indexedData.length; index++) {
+    const { ageRange, price, originalIndex } = indexedData[index];
+    const [strAge, endAge] = ageRange;
+
     // 檢查是否有重疊
     if (strAge < preEndAge) {
-      if (!errors[index]) {
-        errors[index] = { ageError: null, priceError: null };
+      if (!errors[originalIndex]) {
+        errors[originalIndex] = { ageError: null, priceError: null };
       }
-      errors[index]["ageError"] = "年齡區間不可重疊";
-      console.log(errors);
+      errors[originalIndex]["ageError"] = "年齡區間不可重疊";
     }
 
-    if (!cloneData[index].price && cloneData[index].price !== "") {
-      if (!errors[index]) {
-        errors[index] = { ageError: null, priceError: null };
+    if (!price && price !== "") {
+      if (!errors[originalIndex]) {
+        errors[originalIndex] = { ageError: null, priceError: null };
       }
-      errors[index]["priceError"] = "價格不可為空";
+      errors[originalIndex]["priceError"] = "價格不可為空";
     }
 
     preEndAge = endAge;
