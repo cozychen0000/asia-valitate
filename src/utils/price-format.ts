@@ -28,6 +28,7 @@ export function priceFormat(value: string): string {
 // function addComma(val:string) {
 //   const [integer, decimal] = val.toString().split('.');
 //   const integerWithComma = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+// const integerWithComma = Number(integer).toLocaleString('en-US');
 //   return decimal ? `${integerWithComma}.${decimal}` : integerWithComma;
 // }
 
@@ -37,6 +38,13 @@ export function priceFormat(value: string): string {
 //   if (val.startsWith('0.')) return val;
 //   return val.replace(/^0+/, '') || '0';
 // }
+
+//邏輯有不同
+// if (val === '') return '0';
+//     if (val === '-' || val === '+') return '0';
+//     if (val.startsWith('0.')) return val;
+//     if (val.length > 1 && val[0] === '0') return val.slice(1);
+//     return val;
 
 // function removeComma(num: number | string): string {
 //   return num.toString().replace(/,/g, '');
