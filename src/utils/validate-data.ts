@@ -10,6 +10,7 @@ export function validateData(data: AgeRangePriceType[]) {
     ...item,
     originalIndex: index,
   }));
+  
   indexedData.sort((a, b) => a.ageRange[0] - b.ageRange[0]);
 
   let preEndAge = -1; // 檢查 0 
